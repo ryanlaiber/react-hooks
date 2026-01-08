@@ -11,10 +11,23 @@ function TimeCounter(props: TimerPropsT) {
   const [interval, _setInterval] = useState<NodeJS.Timer>();
   const [isPaused, setIsPaused] = useState(true);
 
+  const getNewCounterValue = (_counter: number) => {
+    let newCounter: number;
+
+    if (props.isCountdown) {
+      newCounter = _counter - 1;
+      return newCounter < 0 ? 0 : newCounter;
+    }
+
+    newCounter = _counter + 1;
+
+    return newCounter;
+  };
+
   const startCount = () => {
     _setInterval(
       setInterval(() => {
-        setCounter((prevCounter) => prevCounter + 1);
+        setCounter((prevCounter) => getNewCounterValue(prevCounter));
       }, 1000)
     );
 
