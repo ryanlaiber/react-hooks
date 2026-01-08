@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./time-counter.css";
 
 type TimerPropsT = {
   startTime?: number;
@@ -45,13 +46,15 @@ function TimeCounter(props: TimerPropsT) {
     setCounter(props.startTime || 0);
   };
   return (
-    <div>
-      <span>{counter}</span>
-      {!props.startOnRender && <button onClick={startCount}>Start</button>}
-      <button onClick={stopCount}>Pause</button>
-      <button disabled={!isPaused} onClick={resetTimer}>
-        Reset
-      </button>
+    <div className="timer-wrapper">
+      <span className="counter">{counter}</span>
+      <div className="buttons-wrapper">
+        {!props.startOnRender && <button onClick={startCount}>Start</button>}
+        <button onClick={stopCount}>Pause</button>
+        <button disabled={!isPaused} onClick={resetTimer}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 }

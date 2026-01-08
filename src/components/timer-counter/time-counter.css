@@ -1,0 +1,24 @@
+.timer-wrapper {
+  height: var(--box-height-small);
+  width: var(--box-width-small);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-medium);
+  padding: var(--space-medium);
+  background-color: var(--theme-background-main);
+  border: var(--theme-border-main);
+  border-radius: var(--box-border-radius);
+}
+
+.counter {
+  font-size: xx-large;
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--space-nano);
+}

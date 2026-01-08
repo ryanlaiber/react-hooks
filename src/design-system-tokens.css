@@ -4,4 +4,11 @@
   --space-small: 8px;
   --space-x-small: 10px;
   --space-medium: 12px;
+
+  --box-height-small: 10vh;
+  --box-width-small: 30vh;
+  --box-border-radius: 9px;
+
+  --theme-background-main: azure;
+  --theme-border-main: solid cornflowerblue;
 }
