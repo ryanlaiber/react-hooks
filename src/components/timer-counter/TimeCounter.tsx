@@ -14,9 +14,7 @@ function TimeCounter(props: TimerPropsT) {
   const startCount = () => {
     _setInterval(
       setInterval(() => {
-        console.log("111", counter);
-        setCounter(counter + 1);
-        console.log("222", counter);
+        setCounter((prevCounter) => prevCounter + 1);
       }, 1000)
     );
   };
