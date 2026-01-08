@@ -7,9 +7,9 @@ type TimerPropsT = {
 };
 
 function TimeCounter(props: TimerPropsT) {
-  const [counter, setCounter] = useState(0);
-
+  const [counter, setCounter] = useState(props.startTime || 0);
   const [interval, _setInterval] = useState<NodeJS.Timer>();
+  const [isPaused, setIsPaused] = useState(true);
 
   const startCount = () => {
     _setInterval(
@@ -17,19 +17,28 @@ function TimeCounter(props: TimerPropsT) {
         setCounter((prevCounter) => prevCounter + 1);
       }, 1000)
     );
+
+    setIsPaused(false);
   };
 
   const stopCount = () => {
-    console.log(interval);
     if (!interval) return;
     clearInterval(interval);
+
+    setIsPaused(true);
   };
 
+  const resetTimer = () => {
+    setCounter(props.startTime || 0);
+  };
   return (
     <div>
       <span>{counter}</span>
       {!props.startOnRender && <button onClick={startCount}>Start</button>}
       <button onClick={stopCount}>Pause</button>
+      <button disabled={!isPaused} onClick={resetTimer}>
+        Reset
+      </button>
     </div>
   );
 }
