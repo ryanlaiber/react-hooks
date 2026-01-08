@@ -1,9 +1,7 @@
+import TimeCounter from "../components/timer-counter/TimeCounter";
+
 function Timer() {
-  return (
-    <div>
-      <h1>TIMER PAGE</h1>
-    </div>
-  );
+  return <TimeCounter startOnRender={false} />;
 }
 
 export default Timer;
